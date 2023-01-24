@@ -325,7 +325,6 @@
               "typeHandlerVersion": "1.7",
               "autoUpgradeMinorVersion": true,
               "settings": {
-              "settings": {
                 "fileUris": [ "[parameters('customScriptFile')]" ],
                 "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', parameters('customScriptName'))]"
               }
