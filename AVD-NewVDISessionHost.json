@@ -163,7 +163,7 @@
         },
         "defaultValue": 1
         },
-        "customScriptFile": {
+        "customScriptLocation": {
         "type": "String",
         "metadata": {
         "description": "The uri where installation script are located."
