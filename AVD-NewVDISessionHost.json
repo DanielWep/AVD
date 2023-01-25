@@ -80,7 +80,7 @@
             "type": "string",
             "metadata": {
                 "description": ""
-            },
+            }
         },	
         "vmAdminPassword": {
             "type": "securestring",
@@ -330,4 +330,5 @@
               }
             }
         }
+    ]
 }
