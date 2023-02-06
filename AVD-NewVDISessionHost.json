@@ -157,27 +157,27 @@
             "defaultValue": {}
         },
         "rdshNumberOfInstances": {
-        "type": "int",
-        "metadata": {
-        "description": "Number of session hosts that will be created and added to the hostpool."
-        },
-        "defaultValue": 1
+             "type": "int",
+             "metadata": {
+             "description": "Number of session hosts that will be created and added to the hostpool."
+             },
+             "defaultValue": 1
         },
         "customScriptLocation": {
-        "type": "String",
-        "metadata": {
-        "description": "The uri where installation script are located."
-        },
-        "defaultValue": ""
+             "type": "String",
+             "metadata": {
+             "description": "The uri where installation script are located."
+             },
+             "defaultValue": ""
         },
         "customScriptName": {
-        "type": "String",
-        "metadata": {
-        "description": "The name of the installation script"
-        },
-        "defaultValue": ""
+             "type": "String",
+             "metadata": {
+             "description": "The name of the installation script"
+             },
+             "defaultValue": ""
         }
-	},
+    },
     "variables": {
         "subnet-id": "[resourceId(parameters('virtualNetworkResourceGroupName'),'Microsoft.Network/virtualNetworks/subnets',parameters('existingVnetName'), parameters('existingSubnetName'))]",
 		"availabilitySetId": {
@@ -220,6 +220,7 @@
                         }
                     }
                 ],
+		        "deleteOption": "Delete",
                 "enableAcceleratedNetworking": "[parameters('enableAcceleratedNetworking')]"
             }
         },
@@ -254,7 +255,8 @@
                         "name": "[concat(parameters('rdshNamePrefix'), parameters('vmNumber'), '-OSDisk')]",
                         "createOption": "FromImage",
                         "managedDisk": {
-                            "storageAccountType": "[parameters('rdshVMDiskType')]"
+                            "storageAccountType": "[parameters('rdshVMDiskType')]",
+			                "deleteOption": "Delete"
                             }
 
                     }
