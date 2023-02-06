@@ -220,7 +220,6 @@
                         }
                     }
                 ],
-		"deleteOption": "Delete",
                 "enableAcceleratedNetworking": "[parameters('enableAcceleratedNetworking')]"
             }
         },
@@ -254,7 +253,7 @@
                     "osDisk": {
                         "name": "[concat(parameters('rdshNamePrefix'), parameters('vmNumber'), '-OSDisk')]",
                         "createOption": "FromImage",
-			 "deleteOption": "Delete",
+			"deleteOption": "Delete",
                         "managedDisk": {
                             "storageAccountType": "[parameters('rdshVMDiskType')]",
                             }
@@ -264,8 +263,11 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('rdshNamePrefix'), parameters('vmNumber'), '-nic'))]"
-                        }
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('rdshNamePrefix'), parameters('vmNumber'), '-nic'))]",
+                            "properties": { 
+  	    			"deleteOption": "Delete"
+          		    } 
+			}
                     ]
                 },
                 "diagnosticsProfile": {
