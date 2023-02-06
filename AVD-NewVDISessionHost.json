@@ -190,7 +190,7 @@
     "resources": [
         {
             "apiVersion": "2018-10-01",
-			"condition": "[and(equals(parameters('DedicatedDesktop'),bool('False')),equals(parameters('AvailSetExists'),bool('False')))]",
+	    "condition": "[and(equals(parameters('DedicatedDesktop'),bool('False')),equals(parameters('AvailSetExists'),bool('False')))]",
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[concat(parameters('rdshNamePrefix'),'-',parameters('hostPoolName'), '-availabilitySet')]",
             "location": "[parameters('location')]",
@@ -220,7 +220,7 @@
                         }
                     }
                 ],
-		        "deleteOption": "Delete",
+		"deleteOption": "Delete",
                 "enableAcceleratedNetworking": "[parameters('enableAcceleratedNetworking')]"
             }
         },
@@ -254,9 +254,9 @@
                     "osDisk": {
                         "name": "[concat(parameters('rdshNamePrefix'), parameters('vmNumber'), '-OSDisk')]",
                         "createOption": "FromImage",
+			 "deleteOption": "Delete",
                         "managedDisk": {
                             "storageAccountType": "[parameters('rdshVMDiskType')]",
-			                "deleteOption": "Delete"
                             }
 
                     }
